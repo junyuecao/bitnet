@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title></title>
+   <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/css/page_action_css_min.css">
+    
+  </head>
+  <body>
+    <div>
+      <form id="form1" class="form-horizontal" method="post">
+              <legend>输入用户名和密码</legend>
+              <div class="control-group">
+                <label class="control-label" for="user">用户名：</label>
+                <div class="controls">
+                  <input type="text" id="username" name="uname" placeholder="" value="" tabindex="1">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="pass">密码：</label>
+                <div class="controls">
+                  <input type="password" id="password" name="pass" placeholder="" value="" tabindex="2">
+                </div>
+      
+              </div>
+              <div class="alert" id="msg_div" style="">
+                <button type="button" class="close" id="closebtn" data-dismiss="alert">×</button>
+                <span id="msg"><span style="color:red">请大家注意：上网不涉密，涉密不上网</span></span>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <label class="checkbox">
+                    <input type="checkbox" id="drop" checked> 仅访问免费资源                  
+                  </label>
+                  <label class="checkbox">
+                    <input id="save" type="checkbox" checked> 记住密码    
+                  </label>
+      
+                </div>
+                 <button type="" class="btn btn-primary" id="loginbtn"  >登录</button>
+                  <button type="" class="btn" id="logoutbtn">注销</button>
+                  <button type="" class="btn" id="servicebtn">自服务</button>
+                  <button type="" class="btn" id="infobtn">查看详情</button>
+              </div>
+            </form>
+    </div>
+          <div id="my_table" style="display:none">
+            <table class="table table-bordered" id="info_table">
+                <tbody>
+                  <tr>
+                    <td>信用额度</td>
+                    <td id="xinyong"></td>
+                  </tr>
+                  <tr>
+                    <td>IP地址</td>
+                    <td id="ip"></td>
+                  </tr>
+                  <tr>
+                    <td>在线时长</td>
+                    <td id="zaixian"></td>
+                  </tr>
+                  <tr>
+                    <td>计费入流量</td>
+                    <td id="jiru"></td>
+                  </tr>
+                  <tr>
+                    <td>计费出流量</td>
+                    <td id="jichu"></td>
+                  </tr>
+                  <tr>
+                    <td>免费入流量</td>
+                    <td id="mianru"></td>
+                  </tr>
+                  <tr>
+                    <td>免费出流量</td>
+                    <td id="mianchu"></td>
+                  </tr>
+                  <tr>
+                    <td>访问模式</td>
+                    <td id="fangwen"></td>
+                  </tr>
+                  <tr>
+                    <td>可用流量</td>
+                    <td id="keliu"></td>
+                  </tr>
+                  <tr>
+                    <td>可用时长</td>
+                    <td id="keshi"></td>
+                  </tr>
+                  <tr>
+
+                    <td colspan="2" id="info_btn_td"><button class="btn btn-info" id="info_refresh_btn" style="margin-right: 30px;">刷新</button><button class="btn" id="info_close_btn">关闭</button> </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+
+
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script src="static/js/util.js"></script>
+    <script src="static/js/md5.js"></script>
+    <script type="text/javascript" src="static/js/login.js"></script>
+    <script src="static/js/page_action_js.js"></script>
+  </body>
+</html>
