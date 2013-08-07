@@ -153,7 +153,7 @@ function do_login(storedPass) {
   var p=/^[\d]+$/;
   if(p.test(con)){
       //登录成功
-      var lastInfo = getLastLoginInfo();
+      // var lastInfo = getLastLoginInfo();
       var saveContent = {
       "username" : uname,
       "password" : pass,
@@ -173,7 +173,7 @@ function do_login(storedPass) {
       var mode = (drop===1)?"国内":"国际";
       showSuccess("登录"+mode+"模式成功！");
       if(chrome.extension.sendMessage){
-          chrome.extension.sendMessage({"message":"success","mode":mode,"lastinfo":lastInfo});
+          chrome.extension.sendMessage({"message":"success","mode":mode});
       }
       return;
 
@@ -239,9 +239,9 @@ function goto_services()
 //     notification_test.onclose = function() { ... do something else ... };
 //     notification_test.show();
 $(function(){
-  var user = getUser(),
-      pass = getPass(),
-      freeMode = localStorage['drop'];
+  var user = getUser();
+  var pass = getPass();
+  var freeMode = localStorage['drop'];
   if(freeMode=='1'){
     form.drop.checked=true;
   }else{form.drop.checked=false;}
@@ -259,8 +259,9 @@ $(function(){
     e.preventDefault();
   });
   $("#logoutbtn").click(function(e){
-    force_logout();
     e.preventDefault();
+    force_logout();
+    return false;
   });
   $("#servicebtn").click(function(e){
     goto_services();

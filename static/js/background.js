@@ -8,12 +8,12 @@ function startLogin(request){
 				setTimeout(arguments.callee,1000);
 				i--;
 			}else{
-				var lastInfo = getLastLoginInfo();
-				var map = getIPLocMap(new Array(lastInfo.ip),localStorage["ipdata"]);
-				var content ="上次登录IP："+lastInfo.ip+"　　　　　　　　";
-				content+= "上次登录地点："+map[lastInfo.ip];
+				// var lastInfo = getLastLoginInfo();
+				// var map = getIPLocMap(new Array(lastInfo.ip),localStorage["ipdata"]);
+				// var content ="上次登录IP："+lastInfo.ip+"　　　　　　　　";
+				// content+= "上次登录地点："+map[lastInfo.ip];
 				var no_ok = window.webkitNotifications.createNotification(
-					'static/img/icon48.png', "自动登录成功：" +request.mode+"模式",content);
+					'static/img/icon48.png', "自动登录成功：" +request.mode+"模式","");
 				no_ok.show();
 				localStorage["uid"] = con;
 				setTimeout(function(){
@@ -33,17 +33,17 @@ function startLogin(request){
 }
 function loginOnce(){
 	if(localStorage["data"]&&localStorage["data"]!=""){
-		var lastInfo = getLastLoginInfo();
-		var map = getIPLocMap(new Array(lastInfo.ip),localStorage["ipdata"]);
+		// var lastInfo = getLastLoginInfo();
+		// var map = getIPLocMap(new Array(lastInfo.ip),localStorage["ipdata"]);
 		var data = localStorage["data"];
 		var mode = (localStorage["drop"]===1)?"国内":"国际";
 		var con=postData("http://10.0.0.55/cgi-bin/do_login", "post", data);
 		var p=/^[\d]+$/;
-		var content ="上次登录IP："+lastInfo.ip+"　　　　　　　　";
-		content+= "上次登录地点："+map[lastInfo.ip];
+		// var content ="上次登录IP："+lastInfo.ip+"　　　　　　　　";
+		// content+= "上次登录地点："+map[lastInfo.ip];
 		if(p.test(con)){
 			var no_ok = window.webkitNotifications.createNotification(
-				'static/img/icon48.png', "自动登录成功："+mode+"模式" ,content);
+				'static/img/icon48.png', "自动登录成功："+mode+"模式" ,"");
 			no_ok.show();
 			localStorage["uid"] = con;
 			setTimeout(function(){
@@ -54,13 +54,13 @@ function loginOnce(){
 }
 function  doMessage(request, sender, sendResponse) {
 	if (request.message == "success"){
-		var lastInfo = request.lastinfo;
-		var map = getIPLocMap(new Array(lastInfo.ip),localStorage["ipdata"]);
-		var content =" 上次登录IP："+lastInfo.ip+"　　　　　　　　";
-		content+= "上次登录地点："+ map[lastInfo.ip];
+		// var lastInfo = request.lastinfo;
+		// var map = getIPLocMap(new Array(lastInfo.ip),localStorage["ipdata"]);
+		// var content =" 上次登录IP："+lastInfo.ip+"　　　　　　　　";
+		// content+= "上次登录地点："+ map[lastInfo.ip];
 
 		var no = window.webkitNotifications.createNotification(
-			'static/img/icon48.png', "登录成功:"+request.mode+"模式." ,content);
+			'static/img/icon48.png', "登录成功:"+request.mode+"模式." ,"");
 		no.show();
 		setTimeout(function(){
 			no.cancel();
@@ -73,9 +73,6 @@ function  doMessage(request, sender, sendResponse) {
 			no.cancel();
 		}, 3000);
 		startLogin(request);
-	}else if(request.message == "get_ipmap"){
-		var ipmap = getIPLocMap(request.ips,localStorage["ipdata"]);
-		sendResponse({"ipmap":ipmap});
 	}
 }
 
@@ -107,11 +104,11 @@ chrome.runtime.onInstalled.addListener(function(details) {
 		settings[options[i]] =  (settings[options[i]]===undefined)?true:settings[options[i]];
 		localStorage["settings"] = JSON.stringify( settings);
 	}
-	var url = chrome.extension.getURL("/ipdata.dat");
-	if(url){
-		$.get(url,function(data){
-		localStorage["ipdata"] = data;
-		});
-	}
+	// var url = chrome.extension.getURL("/ipdata.dat");
+	// if(url){
+	// 	$.get(url,function(data){
+	// 	localStorage["ipdata"] = data;
+	// 	});
+	// }
 
 });

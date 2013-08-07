@@ -1,5 +1,5 @@
 /* Copyright 2013 Google Inc. All Rights Reserved. */
-body{width:320px;padding: 5px 10px;height: 320px;}
+body{width:320px;padding: 5px 10px;}
 
 #my_table{
 	width: 95%;
@@ -10,5 +10,8 @@ body{width:320px;padding: 5px 10px;height: 320px;}
 }
 #info_btn_td{
 	text-align: center;
+}
+.table th, .table td{
+	padding:4px;
 }
 

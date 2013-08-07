@@ -14,14 +14,14 @@
       <form id="form1" class="form-horizontal" method="post">
               <legend>输入用户名和密码</legend>
               <div class="control-group">
-                <label class="control-label" for="user">用户名：</label>
-                <div class="controls">
+                <label class="control-label" for="username" style="width:60px;">用户名：</label>
+                <div class="controls" style="margin-left:65px;">
                   <input type="text" id="username" name="uname" placeholder="" value="" tabindex="1">
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="pass">密码：</label>
-                <div class="controls">
+                <label class="control-label" for="password" style="width:60px;">密码：</label>
+                <div class="controls" style="margin-left:65px;">
                   <input type="password" id="password" name="pass" placeholder="" value="" tabindex="2">
                 </div>
       
@@ -31,15 +31,10 @@
                 <span id="msg"><span style="color:red">请大家注意：上网不涉密，涉密不上网</span></span>
               </div>
               <div class="control-group">
-                <div class="controls">
-                  <label class="checkbox">
-                    <input type="checkbox" id="drop" checked> 仅访问免费资源                  
-                  </label>
                   <label class="checkbox">
                     <input id="save" type="checkbox" checked> 记住密码    
                   </label>
       
-                </div>
                  <button type="" class="btn btn-primary" id="loginbtn"  >登录</button>
                   <button type="" class="btn" id="logoutbtn">注销</button>
                   <button type="" class="btn" id="servicebtn">自服务</button>
