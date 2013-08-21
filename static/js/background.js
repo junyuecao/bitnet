@@ -88,7 +88,7 @@ chrome.runtime.onStartup.addListener(function() {
 });
 chrome.idle.setDetectionInterval(3600);
 chrome.idle.onStateChanged.addListener(function(newstate){
-	if(newstate=="active"){
+	if(newstate=="active"&&getSettings().activelogin=="true"){
 		loginOnce();
 	}
 });
