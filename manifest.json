@@ -18,7 +18,7 @@
    "manifest_version": 2,
    "name": "北理工外网登录器",
    "permissions": [ "tabs","storage", "http://10.0.0.55/*","http://10.0.0.55:8080/*","notifications","idle"],
-   "version": "0.1.7",
+   "version": "0.1.8",
    "options_page": "options.html",
    "web_accessible_resources": [  "static/img/icon48.png","ipdata.dat"]
 }
